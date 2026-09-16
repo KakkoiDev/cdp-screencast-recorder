@@ -1,0 +1,40 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Recorder demo</title>
+<style>
+  body { font: 16px/1.5 system-ui, sans-serif; margin: 0; background: #14161a; color: #e8eaed; }
+  header { padding: 20px 28px; border-bottom: 1px solid #2a2e35; }
+  h1 { font-size: 19px; margin: 0; font-weight: 600; }
+  main { display: flex; gap: 28px; padding: 28px; }
+  .panel { flex: 1; background: #1b1e24; border: 1px solid #2a2e35; border-radius: 10px; padding: 20px; }
+  #scroller { height: 260px; overflow: auto; }
+  .row { padding: 14px 12px; border-bottom: 1px solid #262a31; }
+  label { display: block; margin: 14px 0 6px; font-size: 13px; color: #9aa3ae; }
+  input { width: 100%; box-sizing: border-box; padding: 10px 12px; font: inherit;
+          background: #12141a; color: #e8eaed; border: 1px solid #333842; border-radius: 7px; }
+  button { margin-top: 18px; padding: 10px 18px; font: inherit; font-weight: 600;
+           background: #3b6ef0; color: #fff; border: 0; border-radius: 7px; cursor: pointer; }
+  #result { margin-top: 18px; min-height: 24px; color: #7ee08a; font-weight: 600; }
+</style>
+<header><h1>Recorder demo</h1></header>
+<main>
+  <section class="panel" id="scroller">
+    <div id="rows"></div>
+  </section>
+  <section class="panel">
+    <label for="name">Name</label>
+    <input id="name" autocomplete="off">
+    <label for="code">Code</label>
+    <input id="code" autocomplete="off">
+    <button id="submit">Save</button>
+    <div id="result"></div>
+  </section>
+</main>
+<script>
+  document.getElementById('rows').innerHTML =
+    Array.from({ length: 30 }, (_, i) => `<div class="row">Row ${i + 1}</div>`).join('')
+  document.getElementById('submit').addEventListener('click', () => {
+    const name = document.getElementById('name').value
+    document.getElementById('result').textContent = name ? `Saved ${name}` : 'Name is required'
+  })
+</script>
