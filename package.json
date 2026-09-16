@@ -1,0 +1,11 @@
+{
+  "name": "cdp-screencast-recorder",
+  "version": "0.1.0",
+  "description": "Record a Chrome page over CDP as an mp4, with a click ring and a drawn cursor.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "exports": { ".": "./src/recorder.js" },
+  "bin": { "cdp-screencast-recorder": "./bin/record.js" }
+}
